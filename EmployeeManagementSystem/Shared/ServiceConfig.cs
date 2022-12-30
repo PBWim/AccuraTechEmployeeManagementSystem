@@ -1,5 +1,6 @@
 ﻿namespace Shared
 {
+    using Business;
     using Data.Models;
     using Data.Repository;
     using Data.Repository.Base;
@@ -9,8 +10,13 @@
     {
         public static void RegisterServices(this IServiceCollection services)
         {
-            services.AddScoped<IBaseRepository<Department>, DepartmentRepository>();
-            services.AddScoped<IBaseRepository<Employee>, EmployeeRepository>();
+            // Register the Services
+            services.AddScoped<DepartmentService>();
+            services.AddScoped<EmployeeService>();
+
+            // Register the Repositories
+            services.AddScoped<DepartmentRepository>();
+            services.AddScoped<EmployeeRepository>();
         }
     }
 }

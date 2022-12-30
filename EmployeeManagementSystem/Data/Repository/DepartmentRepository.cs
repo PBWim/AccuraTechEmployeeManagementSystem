@@ -33,6 +33,7 @@
 
         public async Task<Department> CreateAsync(Department entity)
         {
+            entity.Id = new Guid();
             var result = await this.context.Departments.AddAsync(entity);
             var status = await this.context.SaveChangesAsync();
             return status > 0 ? result.Entity : default;
