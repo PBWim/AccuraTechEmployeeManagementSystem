@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{FCE1B526-BA7D-44CE-8146-77F932A08703}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Web", "1 Web", "{4A701856-9D53-4DD9-925D-3B1BC7992FF8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Service", "2 Service", "{2D765F0E-93CD-4E14-A834-8FB24C2FE36E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Data", "3 Data", "{3052FEE1-6F22-4EB4-9A40-E5030298AFAB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Shared", "4 Shared", "{81670CBD-8D0B-4430-9B7F-60AF1988E9F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCE1B526-BA7D-44CE-8146-77F932A08703}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCE1B526-BA7D-44CE-8146-77F932A08703}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCE1B526-BA7D-44CE-8146-77F932A08703}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCE1B526-BA7D-44CE-8146-77F932A08703}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FCE1B526-BA7D-44CE-8146-77F932A08703} = {4A701856-9D53-4DD9-925D-3B1BC7992FF8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DB6B9F05-C703-45F7-B986-4CFF43A66F21}
+	EndGlobalSection
+EndGlobal
