@@ -2,6 +2,10 @@
 {
     using System.Linq.Expressions;
 
+    /// <summary>
+    /// Base Repository for the system
+    /// </summary>
+    /// <typeparam name="T">Base Model</typeparam>
     public interface IBaseRepository<T> where T : class, IBaseEntity
     {
         IQueryable<T> GetAll();

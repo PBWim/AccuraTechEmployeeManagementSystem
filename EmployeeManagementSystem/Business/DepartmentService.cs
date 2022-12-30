@@ -10,31 +10,19 @@
         private readonly DepartmentRepository departmentRepository;
         private readonly ILogger<DepartmentService> logger;
 
+        /// <summary>
+        /// Department Service - Handling the Department Business Logics before accessing the Data Layer
+        /// </summary>
         public DepartmentService(ILogger<DepartmentService> logger, DepartmentRepository departmentRepository)
         {
             this.logger = logger;
             this.departmentRepository = departmentRepository;
         }
 
-        public async Task<Department> FindAsync(Guid key)
-        {
-            if (key == Guid.Empty)
-            {
-                this.logger.LogWarning($"Invalid Department Id on {nameof(FindAsync)} in {nameof(DepartmentService)}");
-                return default;
-            }
-
-            var department = await this.departmentRepository.FindAsync(key);
-            if (department == default)
-            {
-                this.logger.LogWarning($"Department for Id not found on {nameof(FindAsync)} in {nameof(DepartmentService)}");
-                return default;
-            }
-
-            this.logger.LogInformation($"Department for Id : {key} found {department} on {nameof(FindAsync)} in {nameof(DepartmentService)}");
-            return department;
-        }
-
+        /// <summary>
+        /// Get all the Departments in the system
+        /// </summary>
+        /// <returns></returns>
         public IQueryable<Department> GetAll()
         {
             var departments = this.departmentRepository.GetAll();
@@ -42,6 +30,10 @@
             return departments;
         }
 
+        /// <summary>
+        /// Get Department matching to the Search Criteria
+        /// </summary>
+        /// <returns></returns>
         public IQueryable<Department> GetByCondition(Expression<Func<Department, bool>> expression)
         {
             if (expression == null)
@@ -61,6 +53,33 @@
             return departments;
         }
 
+        /// <summary>
+        /// Find Department by Id in the system
+        /// </summary>
+        /// <returns></returns>
+        public async Task<Department> FindAsync(Guid key)
+        {
+            if (key == Guid.Empty)
+            {
+                this.logger.LogWarning($"Invalid Department Id on {nameof(FindAsync)} in {nameof(DepartmentService)}");
+                return default;
+            }
+
+            var department = await this.departmentRepository.FindAsync(key);
+            if (department == default)
+            {
+                this.logger.LogWarning($"Department for Id not found on {nameof(FindAsync)} in {nameof(DepartmentService)}");
+                return default;
+            }
+
+            this.logger.LogInformation($"Department for Id : {key} found {department} on {nameof(FindAsync)} in {nameof(DepartmentService)}");
+            return department;
+        }
+
+        /// <summary>
+        /// Create Department to the system
+        /// </summary>
+        /// <returns></returns>
         public async Task<Department> CreateAsync(Department entity)
         {
             this.logger.LogInformation($"Create Department on {nameof(CreateAsync)} in {nameof(DepartmentService)} with Department details : {entity}");
@@ -68,6 +87,10 @@
             return result;
         }
 
+        /// <summary>
+        /// Update Department in the system
+        /// </summary>
+        /// <returns></returns>
         public async Task<Department> UpdateAsync(Department entity)
         {
             if (entity.Id == Guid.Empty)
@@ -88,6 +111,10 @@
             return result;
         }
 
+        /// <summary>
+        /// Delete Department in the system
+        /// </summary>
+        /// <returns></returns>
         public async Task<bool> DeleteAsync(Department entity)
         {
             if (entity.Id == Guid.Empty)

@@ -11,12 +11,19 @@ namespace EmployeeManagementSystem.Controllers
         private readonly ILogger<EmployeeController> logger;
         private readonly EmployeeService employeeService;
 
+        /// <summary>
+        /// Employee Controller - Exposed to Frontend
+        /// </summary>
         public EmployeeController(ILogger<EmployeeController> logger, EmployeeService employeeService)
         {
             this.logger = logger;
             this.employeeService = employeeService;
         }
 
+        /// <summary>
+        /// Get all the Employees in the system
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("Get")]
         public IEnumerable<Employee> Get()
@@ -26,6 +33,10 @@ namespace EmployeeManagementSystem.Controllers
             return employee;
         }
 
+        /// <summary>
+        /// Get all the Employee by Id
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("Get/{Id}")]
         public async Task<Employee> Get(Guid Id)
@@ -35,6 +46,10 @@ namespace EmployeeManagementSystem.Controllers
             return employee;
         }
 
+        /// <summary>
+        /// Create Employee in the system
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         [Route("CreateEmployee")]
         public async Task<IActionResult> Create([FromBody] Employee model)
@@ -56,6 +71,10 @@ namespace EmployeeManagementSystem.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Update Employee in the system
+        /// </summary>
+        /// <returns></returns>
         [HttpPut]
         [Route("UpdateEmployee")]
         public async Task<IActionResult> Update([FromBody] Employee model)
@@ -77,7 +96,10 @@ namespace EmployeeManagementSystem.Controllers
             return Ok(result);
         }
 
-        [HttpDelete]
+        /// <summary>
+        /// Delete Employee in the system
+        /// </summary>
+        /// <returns></returns>  [HttpDelete]
         [Route("DeleteEmployee")]
         public async Task<IActionResult> Delete([FromBody] Employee model)
         {

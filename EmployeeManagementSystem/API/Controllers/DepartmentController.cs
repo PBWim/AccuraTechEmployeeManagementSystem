@@ -11,12 +11,19 @@ namespace EmployeeManagementSystem.Controllers
         private readonly ILogger<DepartmentController> logger;
         private readonly DepartmentService departmentService;
 
+        /// <summary>
+        /// Department Controller - Exposed to Frontend
+        /// </summary>
         public DepartmentController(ILogger<DepartmentController> logger, DepartmentService departmentService)
         {
             this.logger = logger;
             this.departmentService = departmentService;
         }
 
+        /// <summary>
+        /// Get all the Departments in the system
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("Get")]
         public IEnumerable<Department> Get()
