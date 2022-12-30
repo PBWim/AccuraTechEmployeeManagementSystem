@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Data.Models
+﻿namespace Data.Models
 {
+    using System.ComponentModel.DataAnnotations;
+    using Data.Repository.Base;
+
     /// <summary>
     /// Department Model
     /// </summary>
-    public class Department
+    public class Department : IBaseEntity
     {
         /// <summary>
         /// Department Id

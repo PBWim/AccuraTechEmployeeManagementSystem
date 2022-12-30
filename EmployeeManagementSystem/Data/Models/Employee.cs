@@ -2,12 +2,13 @@
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using static Shared.Enums;
+    using Data.Repository.Base;
+    using static Data.Models.Constants.Enums;
 
     /// <summary>
     /// Employee Model
     /// </summary>
-    public class Employee
+    public class Employee : IBaseEntity
     {
         /// <summary>
         /// Employee Id
@@ -45,7 +46,7 @@
         /// Employee Address
         /// </summary>
         [Required]
-        [MaxLength(500)] 
+        [MaxLength(500)]
         public string Address { get; set; }
 
         /// <summary>

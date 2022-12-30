@@ -1,6 +1,7 @@
 using API.Helpers;
 using Data;
 using Microsoft.EntityFrameworkCore;
+using Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,9 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Register Dependency Injections
+builder.Services.RegisterServices();
 
 var app = builder.Build();
 

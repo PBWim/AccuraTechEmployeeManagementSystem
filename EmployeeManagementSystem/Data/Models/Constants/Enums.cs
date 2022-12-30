@@ -1,4 +1,4 @@
-﻿namespace Shared
+﻿namespace Data.Models.Constants
 {
     public class Enums
     {
