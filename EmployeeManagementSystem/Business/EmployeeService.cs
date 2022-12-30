@@ -76,7 +76,7 @@
                 return default;
             }
 
-            var employee = this.FindAsync(entity.Id);
+            var employee = await this.FindAsync(entity.Id);
             if (employee == default)
             {
                 this.logger.LogWarning($"Employee for Id : {entity.Id} not found on {nameof(UpdateAsync)} in {nameof(EmployeeService)}");
@@ -96,7 +96,7 @@
                 return default;
             }
 
-            var employee = this.FindAsync(entity.Id);
+            var employee = await this.FindAsync(entity.Id);
             if (employee == default)
             {
                 this.logger.LogWarning($"Employee for Id : {entity.Id} not found on {nameof(DeleteAsync)} in {nameof(EmployeeService)}");

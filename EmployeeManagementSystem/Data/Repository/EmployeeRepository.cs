@@ -33,6 +33,7 @@
 
         public async Task<Employee> CreateAsync(Employee entity)
         {
+            entity.Department = null;
             var result = await this.context.Employees.AddAsync(entity);
             var status = await this.context.SaveChangesAsync();
             return status > 0 ? result.Entity : default;
@@ -48,6 +49,7 @@
             Employee.Address = entity.Address;
             Employee.DepartmentId = entity.DepartmentId;
             Employee.BasicSalary = entity.BasicSalary;
+            Employee.Department = null;
             var result = this.context.Employees.Update(Employee);
             var status = await this.context.SaveChangesAsync();
             return status > 0 ? result.Entity : default;
