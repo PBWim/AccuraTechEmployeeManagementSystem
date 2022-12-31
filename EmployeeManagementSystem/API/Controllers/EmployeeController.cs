@@ -100,6 +100,7 @@ namespace EmployeeManagementSystem.Controllers
         /// Delete Employee in the system
         /// </summary>
         /// <returns></returns>  [HttpDelete]
+        [HttpDelete]
         [Route("DeleteEmployee")]
         public async Task<IActionResult> Delete([FromBody] Employee model)
         {
