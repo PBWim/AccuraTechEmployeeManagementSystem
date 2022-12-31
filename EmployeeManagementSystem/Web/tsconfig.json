@@ -1,4 +1,6 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
+/* To learn more about this file see: https://angular.io/config/tsconfig.
+  Default TypeScript configuration for applications in the workspace, including TypeScript and Angular template compiler options.
+*/
 {
   "compileOnSave": false,
   "compilerOptions": {

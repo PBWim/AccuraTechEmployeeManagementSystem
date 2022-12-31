@@ -1,3 +1,5 @@
+// Defines a unit test for the root AppComponent.
+
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 

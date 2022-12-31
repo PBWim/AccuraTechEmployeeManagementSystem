@@ -1,4 +1,6 @@
 # Editor configuration, see https://editorconfig.org
+# Configuration for code editors.
+
 root = true
 
 [*]

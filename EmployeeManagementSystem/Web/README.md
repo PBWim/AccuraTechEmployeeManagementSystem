@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+--------------------------
+
+## More Info 
+https://www.w3resource.com/angular/getting-started-with-angular.php
+
+.app/ - Contains the component files in which your app logic and data are defined.
+
+.assets/ -	Contains image files and other asset files to be copied as-is when you build your application.
+
+environments/ -	Contains build configuration options for particular target environments. By default, there is an unnamed standard development environment and
+a production ("prod") environment. You can define additional target environment configurations.
