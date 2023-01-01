@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Shared;
 
 var builder = WebApplication.CreateBuilder(args);
+var allowSpecificOrigins = "allowSpecificOrigins";
 
 // Register the DataContext
 builder.Services.AddDbContext<DataContext>(options =>
@@ -21,6 +22,15 @@ builder.Services.AddSwaggerGen();
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: allowSpecificOrigins,
+        policy =>
+        {
+            policy.WithOrigins(builder.Configuration["AllowedOrigin"]);
+        });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -29,6 +39,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(allowSpecificOrigins);
 
 app.UseHttpsRedirection();
 

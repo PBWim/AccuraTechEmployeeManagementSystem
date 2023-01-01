@@ -1,0 +1,55 @@
+<div class="col-md-12">
+  <h5>View your Employees in Accura Tech...</h5>
+  <p *ngIf="!employees"><em>Loading...</em></p>
+
+  <p>
+    <a [routerLink]="['/new-employee']" class="btn btn-success">Add New Employee</a>
+  </p>
+
+  <p>
+    <button class="btn btn-secondary" (click)="showhideSalary()">Show / Hide Basic Salary</button>
+  </p>
+
+  <div class="card card-container p-3" *ngIf="employees">
+    <div>
+      <table class='table'>
+        <thead>
+          <tr class="text-center">
+            <th hidden>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Date of Birth</th>
+            <th>Address</th>
+            <th>Department</th>
+            <th *ngIf="showSalary">Basic Salary (Rs.)</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees" class="text-center">
+            <td hidden>{{ employee.id }}</td>
+            <td>{{ employee.firstName }}</td>
+            <td>{{ employee.lastName }}</td>
+            <td>{{employee.gender === 1 ? "Male" : "Female"}}</td>
+            <td>{{ employee.dob | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ employee.address}}</td>
+            <td>{{ employee.department.name }}</td>
+            <td *ngIf="showSalary">{{ employee.basicSalary}}</td>
+            <td>
+              <div class="row">
+                <div class="col-md-6">
+                  <button type="button" class="btn btn-secondary" (click)="edit(employee)">Edit</button>
+                </div>
+                <div class="col-md-6">
+                  <button type="button" class="btn btn-danger" (click)="delete(employee)">Delete</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
